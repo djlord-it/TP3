@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class TP3 {
     private static Scanner sc = new Scanner(System.in);
-    private static final String menu = "Menu principal\n" +
+    private static final String MENU = "Menu principal\n" +
             "**************************************************\n" +
             "*      Bienvenue chez Le Meilleur                *\n" +
             "*        Choisissez une option :                 *\n" +
@@ -25,7 +25,7 @@ public class TP3 {
 
         do {
             // Affichage du menu
-            System.out.println(menu);
+            System.out.println(MENU);
             System.out.print("Votre choix : ");
             String entree = sc.nextLine().trim(); // Récupérer la ligne complète et éviter les erreurs
             if (entree.isEmpty()) {
