@@ -16,6 +16,7 @@ public class TP3 {
             "*    F      Facturation                          *\n" +
             "*    Q      Quitter                              *\n" +
             "**************************************************\n";
+    private static final String MSG_INVLD = "Option invalide. Veuillez réessayer.";
 
     public static void main(String[] args) {
         // Initialisation de l'inventaire
@@ -28,7 +29,7 @@ public class TP3 {
             System.out.print("Votre choix : ");
             String entree = sc.nextLine().trim(); // Récupérer la ligne complète et éviter les erreurs
             if (entree.isEmpty()) {
-                System.out.println("Option invalide. Veuillez réessayer.");
+                System.out.println(MSG_INVLD);
                 continue;
             }
 
@@ -43,7 +44,7 @@ public class TP3 {
                 case 'M': inventaire.modifierArticle(); break;
                 case 'F': inventaire.facturer(); break;
                 case 'Q': inventaire.sauvegarderArticles(); break;
-                default: System.out.println("Option invalide. Veuillez réessayer."); break;
+                default: System.out.println(MSG_INVLD); break;
             }
 
             if (choix != 'Q') {

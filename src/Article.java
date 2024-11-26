@@ -46,6 +46,6 @@ public class Article {
     }
 
     public String toString() {
-        return id + " ; " + categorie + " ; " + description + " ; " + quantite + " ; " + prix;
+        return id + ";" + categorie + ";" + description + ";" + quantite + ";" + prix;
     }
 }

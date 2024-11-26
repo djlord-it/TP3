@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Inventaire {
-    static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     private String succursale;
     private Article[] articles;
     private int numFacture;
@@ -14,8 +14,20 @@ public class Inventaire {
     }
 
 
+    /**
+     * Ajoute un nouvel article à l'inventaire.
+     * l'utilisateur peut définir l'ID initial.
+     * Pour la suite, l'utilisateur peut ajouter un ID pourvu qu'il soit séquentiel
+     * sinon ce dernier sera généré automatiquement si nécessaire.
+     * Méthodes liées :
+     * - `validerEntierPositif(String message)`
+     * - `validerStringNonVide(String message)`
+     * - `validerDoublePositif(String message)`
+     */
     public void ajouterArticle() {
         int id;
+        boolean check = false;
+
         if (articles.length == 0) {
             // Aucun article dans le tableau, l'utilisateur peut définir l'ID initial
             id = validerEntierPositif("Entrez l'ID du premier article : ");
@@ -24,28 +36,42 @@ public class Inventaire {
             int dernierId = articles[articles.length - 1].getId();
             System.out.print("Entrez l'ID : ");
             id = scanner.nextInt();
-            if(id != dernierId + 1) {
-            id = dernierId + 1; // Générer le prochain ID séquentiel
-            System.out.println("Le nouvel ID généré est : " + id);
+            check = idExiste(id); // Vérifie si l'ID existe déjà
             scanner.nextLine();
+            if (!check && id != dernierId + 1) {
+                id = dernierId + 1; // Générer le prochain ID séquentiel
+                System.out.println("Le nouvel ID généré est : " + id);
+                scanner.nextLine();
             }
         }
 
-        // Reste des informations sur l'article
-        String categorie = validerStringNonVide("Entrez la catégorie de l'article : ");
-        String description = validerStringNonVide("Entrez la description de l'article : ");
-        int quantite = validerEntierPositif("Entrez la quantité de l'article : ");
-        double prix = validerDoublePositif("Entrez le prix de l'article : ");
+        if (check) {
+            // Si l'article existe, ajuster la quantité
+            Article articleExistant = ArticleExiste(id);
+            if (articleExistant != null) {
+                System.out.println("l'ID "+ articleExistant.getId() + " correspond à l'article '" + articleExistant.getDescription()+"'");
+                int quantiteAdditionnelle = validerEntierPositif(
+                        "Entrez la quantité supplémentaire : ");
+                articleExistant.setQuantite(articleExistant.getQuantite() + quantiteAdditionnelle);
+                System.out.println("La quantité de l'article existant a été mise à jour.");
+            }
+        } else {
+            // Reste des informations sur l'article
+            String categorie = validerStringNonVide("Entrez la catégorie de l'article : ");
+            String description = validerStringNonVide("Entrez la description de l'article : ");
+            int quantite = validerEntierPositif("Entrez la quantité de l'article : ");
+            double prix = validerDoublePositif("Entrez le prix de l'article : ");
 
-        // Création de l'article
-        Article nouvelArticle = new Article(id, categorie, description, quantite, prix);
-        Article[] nouveauTableau = new Article[articles.length + 1];
-        for (int i = 0; i < articles.length; i++) {
-            nouveauTableau[i] = articles[i];
+            // Création de l'article
+            Article nouvelArticle = new Article(id, categorie, description, quantite, prix);
+            Article[] nouveauTableau = new Article[articles.length + 1];
+            for (int i = 0; i < articles.length; i++) {
+                nouveauTableau[i] = articles[i];
+            }
+            nouveauTableau[articles.length] = nouvelArticle;
+            articles = nouveauTableau;
+            System.out.println("Nouvel article ajouté avec succès.");
         }
-        nouveauTableau[articles.length] = nouvelArticle;
-        articles = nouveauTableau;
-        System.out.println("Nouvel article ajouté avec succès.");
     }
 
     public void afficherArticle() {
@@ -180,10 +206,11 @@ public class Inventaire {
     }
 
 
-
-
-
-
+    /**
+     * Vérifie si un article avec l'ID spécifié existe dans la liste des articles.
+     * @param id ID de l'article à rechercher.
+     * @return L'article correspondant si trouvé, sinon `null`.
+     */
     private Article ArticleExiste(int id) {
         for (Article article : articles) {
             if (article.getId() == id) {
@@ -193,6 +220,12 @@ public class Inventaire {
         return null;
     }
 
+    /**
+     * Gère le processus de vente en permettant au caissier de sélectionner des articles
+     * et de définir les quantités à acheter. Réduit les quantités en stock et génère une
+     * liste des articles facturés.
+     * @return Un tableau des articles achetés pour la facture.
+     */
     private Article[] genererFacture() {
         Article[] articlesFactures = new Article[0];
 
@@ -235,6 +268,12 @@ public class Inventaire {
         return articlesFactures;
     }
 
+    /**
+     * Construit une facture détaillée sous forme de chaîne à partir des articles facturés.
+     * Inclut les calculs des sous-totaux, TPS, TVQ et total général.
+     * @param articlesFactures Tableau des articles achetés.
+     * @return Un objet StringBuilder contenant le texte de la facture.
+     */
     private StringBuilder construireFacture(Article[] articlesFactures) {
         StringBuilder factureBuilder = new StringBuilder();
         if (articlesFactures.length == 0) {
@@ -277,6 +316,11 @@ public class Inventaire {
         return factureBuilder;
     }
 
+    /**
+     * Affiche la facture générée dans la console. Si aucun article n'est facturé, un
+     * message indiquant une facture vide est affiché.
+     * @param articlesFactures Tableau des articles achetés.
+     */
     private void afficherFacture(Article[] articlesFactures) {
         if (articlesFactures.length == 0) {
             System.out.println("Facture vide. Aucun achat effectué.");
@@ -287,6 +331,11 @@ public class Inventaire {
         System.out.println(facture.toString());
     }
 
+    /**
+     * Enregistre la facture générée dans un fichier texte. Gère la numérotation des fichiers
+     * pour éviter les conflits.
+     * @param articlesFactures Tableau des articles achetés.
+     */
     private void enregistrerFactureDansFichier(Article[] articlesFactures) {
         StringBuilder contenuFacture = construireFacture(articlesFactures);
 
@@ -312,6 +361,12 @@ public class Inventaire {
         }
     }
 
+    /**
+     * Ajoute un nouvel article à un tableau existant d'articles.
+     * @param tableauActuel Tableau existant d'articles.
+     * @param nouvelArticle Article à ajouter au tableau.
+     * @return Un nouveau tableau contenant tous les articles, y compris le nouvel article.
+     */
     private Article[] ajouterAuTableau(Article[] tableauActuel, Article nouvelArticle) {
         Article[] nouveauTableau = new Article[tableauActuel.length + 1];
 
@@ -326,6 +381,11 @@ public class Inventaire {
         return nouveauTableau;
     }
 
+    /**
+     * Supprime un article du tableau des articles en fonction de son ID.
+     * Si l'article n'est pas trouvé, aucun changement n'est effectué.
+     * @param id ID de l'article à supprimer.
+     */
     private void supprimerArticleDuTableau(int id) {
         Article[] nouveauTableau = new Article[articles.length - 1];
         int index = 0;
@@ -345,6 +405,11 @@ public class Inventaire {
         }
     }
 
+    /**
+     * Valide l'entrée d'un nouvel ID pour un article en s'assurant qu'il est unique.
+     * Demande à l'utilisateur de réessayer en cas de conflit.
+     * @return Un ID unique validé.
+     */
     private int validerNouvelId() {
         int id;
         do {
@@ -356,6 +421,12 @@ public class Inventaire {
         return id;
     }
 
+    /**
+     * Demande à l'utilisateur d'entrer une chaîne non vide.
+     * Répète la saisie tant qu'une chaîne valide n'est pas fournie.
+     * @param message Message d'invite affiché à l'utilisateur.
+     * @return Une chaîne non vide validée.
+     */
     private String validerStringNonVide(String message) {
         String valeur;
         do {
@@ -368,6 +439,12 @@ public class Inventaire {
         return valeur;
     }
 
+    /**
+     * Valide l'entrée d'un entier positif. Demande une nouvelle saisie en cas
+     * de valeur négative ou d'entrée invalide.
+     * @param message Message d'invite affiché à l'utilisateur.
+     * @return Un entier positif validé.
+     */
     private int validerEntierPositif(String message) {
         int valeur = -1;
         do {
@@ -386,6 +463,12 @@ public class Inventaire {
         return valeur;
     }
 
+    /**
+     * Valide l'entrée d'un nombre décimal positif. Répète la saisie en cas de valeur
+     * négative ou d'entrée invalide.
+     * @param message Message d'invite affiché à l'utilisateur.
+     * @return Un nombre décimal positif validé.
+     */
     private double validerDoublePositif(String message) {
         double valeur = -1;
         do {
@@ -404,66 +487,24 @@ public class Inventaire {
         return valeur;
     }
 
+    /**
+     * Demande à l'utilisateur d'entrer une chaîne, qui peut être vide.
+     * Nécessaire pour la méthode de la modification qui accepte un String vide
+     * @param message Message d'invite affiché à l'utilisateur.
+     * @return Une chaîne saisie par l'utilisateur.
+     */
     private String validerStringMod(String message) {
         System.out.print(message);
         return scanner.nextLine().trim(); // Retourne même une chaîne vide si aucune entrée n'est fournie
     }
 
-
-    /**
-     private void ajouterArticleDansTableau(Article nouvelArticle) {
-     Article[] nouveauTableau = new Article[articles.length + 1];
-     for (int i = 0; i < articles.length; i++) {
-     nouveauTableau[i] = articles[i];
-     }
-     nouveauTableau[articles.length] = nouvelArticle;
-     articles = nouveauTableau;
-     }
-     */
-
-    /**
-     private void afficherFacture(Article[] articlesFactures) {
-     if (articlesFactures.length == 0) {
-     System.out.println("Facture vide. Aucun achat effectué.");
-     return;
-     }
-
-     // Calcul du total
-     double total = 0.0;
-     StringBuilder factureBuilder = new StringBuilder();
-
-     factureBuilder.append("FACTURE ").append(numFacture).append("\n")
-     .append("ITEM    DESCRIPTION                                    QTE     TOTAL\n")
-     .append("------------------------------------------------------------------------\n");
-
-     for (int i = 0; i < articlesFactures.length; i++) {
-     Article article = articlesFactures[i];
-     double montantArticle = article.getQuantite() * article.getPrix();
-
-     factureBuilder.append(String.format("%-11d", article.getId()))
-     .append(String.format("%-40s", article.getDescription()))
-     .append(String.format("%5d", article.getQuantite()))
-     .append(String.format("%10.2f $", montantArticle))
-     .append("\n");
-
-     total += montantArticle;
-     }
-
-     // Calcul des taxes
-     double tps = total * 0.05;
-     double tvq = total * 0.0995;
-     double totalAvecTaxes = total + tps + tvq;
-
-     // Ajouter le récapitulatif
-     factureBuilder.append("------------------------------------------------------------------------\n")
-     .append(String.format("%42s Sous-total : %10.2f $%n", "", total))
-     .append(String.format("%42s TPS (5%%)   : %10.2f $%n", "", tps))
-     .append(String.format("%42s TVQ (9.95%%): %10.2f $%n", "", tvq))
-     .append(String.format("%42s Total      : %10.2f $%n", "", totalAvecTaxes));
-
-     // Afficher la facture formatée
-     System.out.println(factureBuilder.toString());
-     }
-     */
+    private boolean idExiste(int id) {
+        for (int i = 0; i < articles.length; i++) {
+            if (articles[i].getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
