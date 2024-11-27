@@ -9,7 +9,7 @@ public class Validations {
             System.out.print(message);
             valeur = scanner.nextLine().trim();
             if (valeur.isEmpty()) {
-                System.out.println(Message.ERREUR_VIDE);
+                System.out.println(Message.Erreur.VIDE);
             }
         } while (valeur.isEmpty());
         return valeur;
@@ -23,10 +23,10 @@ public class Validations {
                 valeur = scanner.nextInt();
                 scanner.nextLine();
                 if (valeur < 0) {
-                    System.out.println(Message.ERREUR_PSTV);
+                    System.out.println(Message.Erreur.POSITIVE);
                 }
             } catch (InputMismatchException e) {
-                System.out.println(Message.ERREUR_INVLD);
+                System.out.println(Message.Erreur.INVALIDE);
                 scanner.nextLine();
             }
         } while (valeur < 0);
@@ -41,10 +41,10 @@ public class Validations {
                 valeur = scanner.nextDouble();
                 scanner.nextLine();
                 if (valeur < 0) {
-                    System.out.println(Message.ERREUR_PSTV);
+                    System.out.println(Message.Erreur.POSITIVE);
                 }
             } catch (InputMismatchException e) {
-                System.out.println(Message.ERREUR_INVLD);
+                System.out.println(Message.Erreur.INVALIDE);
                 scanner.nextLine();
             }
         } while (valeur < 0);

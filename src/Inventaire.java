@@ -13,8 +13,6 @@ public class Inventaire {
         this.articles = chargerInventaire(nomFichier);
     }
 
-
-
     public void ajouterArticle() {
         int id;
         boolean check = false;
@@ -29,7 +27,7 @@ public class Inventaire {
             scanner.nextLine();
             if (!check && id != dernierId + 1) {
                 id = dernierId + 1;
-                System.out.println(Message.ID_SEQUENTIEL + id);
+                System.out.println(Message.Id.SEQUENTIEL + id);
             }
         }
 
@@ -39,12 +37,12 @@ public class Inventaire {
                 System.out.println("l'ID "+ articleExistant.getId() + " correspond à l'article '" + articleExistant.getDescription()+"'");
                 int quantiteAdditionnelle = Validations.validerEntierPositif("Entrez la quantité supplémentaire : ");
                 articleExistant.setQuantite(articleExistant.getQuantite() + quantiteAdditionnelle);
-                System.out.println(Message.QUANTITE_MAJ);
+                System.out.println(Message.Quantite.MAJ);
             }
         } else {
             Article nouvelArticle = saisirInformationsArticle(id);
             articles = ajoutTableauTemp(articles, nouvelArticle);
-            System.out.println(Message.ARTICLE_AJOUTE_SUCCES);
+            System.out.println(Message.Article.AJOUTE_SUCCES);
         }
     }
 
@@ -60,13 +58,13 @@ public class Inventaire {
             System.out.println("Quantité : " + article.getQuantite());
             System.out.println("Prix : " + article.getPrix() + " $");
         } else {
-            System.out.println(Message.ARTICLE_NON_TROUVE);
+            System.out.println(Message.Article.NON_TROUVE);
         }
     }
 
     public void afficherTousArticles() {
         if (articles.length == 0) {
-            System.out.println(Message.ARTICLE_VIDE);
+            System.out.println(Message.Article.VIDE);
         } else {
             boolean risqueTrouve = false;
             System.out.println("\nListe de tous les articles :");
@@ -79,14 +77,14 @@ public class Inventaire {
                 System.out.println();
             }
             if (risqueTrouve) {
-                System.out.println(Message.ARTICLE_RISQUE);
+                System.out.println(Message.Article.RISQUE);
             }
         }
     }
 
     public void supprimerArticle() {
         if (articles.length == 0) {
-            System.out.println(Message.ARTICLE_VIDE);
+            System.out.println(Message.Article.VIDE);
         }else {
             int id = Validations.validerEntierPositif("Entrez l'ID de l'article à supprimer : ");
             Article article = articleExiste(id);
@@ -101,19 +99,19 @@ public class Inventaire {
 
                 if (confirmation.equals("o")) {
                     supprimerArticleDuTableau(id);
-                    System.out.println(Message.ARTICLE_SUPPRIME_SUCCES);
+                    System.out.println(Message.Article.SUPPRIME_SUCCES);
                 } else {
                     System.out.println("Suppression annulée.");
                 }
             } else {
-                System.out.println(Message.ARTICLE_NON_TROUVE);
+                System.out.println(Message.Article.NON_TROUVE);
             }
         }
     }
 
     public void afficherArticlesARisque() {
         if (articles.length == 0) {
-            System.out.println(Message.ARTICLE_VIDE);
+            System.out.println(Message.Article.VIDE);
         } else {
             System.out.println("\nArticles à risque (quantité <= 5) :");
             boolean risqueTrouve = articlesARisque();
@@ -137,7 +135,7 @@ public class Inventaire {
             saisirInformationsArticleMod(article);
             System.out.println("Article modifié avec succès !");
         } else {
-            System.out.println(Message.ARTICLE_NON_TROUVE);
+            System.out.println(Message.Article.NON_TROUVE);
         }
     }
 
@@ -153,7 +151,7 @@ public class Inventaire {
         String nomFichier = "Sortie.txt";
         try (FileWriter writer = new FileWriter(nomFichier)) {
             if (articles.length == 0) {
-                writer.write(Message.ARTICLE_VIDE+"\n");
+                writer.write(Message.Article.VIDE+"\n");
             } else {
                 for (Article article : articles) {
                     writer.write(article.toString() + "\n");
@@ -228,7 +226,7 @@ public class Inventaire {
 
             Article article = articleExiste(id);
             if (article == null) {
-                System.out.println(Message.ARTICLE_NON_TROUVE);
+                System.out.println(Message.Article.NON_TROUVE);
                 continue;
             }
 
@@ -236,13 +234,13 @@ public class Inventaire {
             int quantiteAchetee = Validations.validerEntierPositif("Quantité achetée : ");
 
             if (quantiteAchetee <= 0 || quantiteAchetee > article.getQuantite()) {
-                System.out.println(Message.QUANTITE_OUTOFBOUND);
+                System.out.println(Message.Quantite.OUTOFBOUND);
                 continue;
             }
             Article articleFacture = new Article(article.getId(), article.getCategorie(), article.getDescription(), quantiteAchetee, article.getPrix());
             article.setQuantite(article.getQuantite() - quantiteAchetee);
             articlesFactures = ajoutTableauTemp(articlesFactures, articleFacture);
-            System.out.println(Message.ARTICLE_FACTURE);
+            System.out.println(Message.Article.FACTURE);
         }
 
         return articlesFactures;
@@ -284,7 +282,7 @@ public class Inventaire {
         if (index == nouveauTableau.length) {
             articles = nouveauTableau;
         } else {
-            System.out.println(Message.ARTICLE_NON_TROUVE);
+            System.out.println(Message.Article.NON_TROUVE);
         }
     }
 

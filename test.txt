@@ -1,0 +1,244 @@
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
+
+Votre choix : t
+
+Liste de tous les articles :
+1001;console;console de jeu PalyStation;8;999.95
+1002;console;console de jeu Lenovo;45;900.95
+1003;console;console de jeu Nintendo;540;499.99
+1004;manette;manette sans fil Logitech;12;25.98
+1005;manette;manette sans fil PlayStation;30;90.98
+1006;volant;volant de course Logitech;17;280.65
+1007;carte;carte mémoire 512GB;34;23.99
+1008;carte;carte réseau sans fil USB WIFI;22;129.99
+1009;cable;cable d’extension J&D;54;25.98
+1010;haut-parleur;haut-parleur Yamaska SurroundFlow 13.5;4;839.95      ⚠
+1011;casque;casque d’écoute Ozeino;13;34.95
+1012;casque;casque d’écoute Bluetooth;13;80.95
+⚠: Article à risque trouvé dans la liste.
+Veuillez vous rendre au menu L pour les regrouper.
+
+Appuyez sur Entrée pour continuer...
+
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
+
+Votre choix : a
+Entrez l'ID : 1234
+ID non séquentiel !
+Voici l'ID séquentiel : 1013
+Entrez la catégorie de l'article : !casque111
+Entrez la description de l'article : JBL
+Entrez la quantité de l'article : 4
+Entrez le prix de l'article : 200
+Nouvel article ajouté avec succès.
+
+Appuyez sur Entrée pour continuer...
+
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
+
+Votre choix : t
+
+Liste de tous les articles :
+1001;console;console de jeu PalyStation;8;999.95
+1002;console;console de jeu Lenovo;45;900.95
+1003;console;console de jeu Nintendo;540;499.99
+1004;manette;manette sans fil Logitech;12;25.98
+1005;manette;manette sans fil PlayStation;30;90.98
+1006;volant;volant de course Logitech;17;280.65
+1007;carte;carte mémoire 512GB;34;23.99
+1008;carte;carte réseau sans fil USB WIFI;22;129.99
+1009;cable;cable d’extension J&D;54;25.98
+1010;haut-parleur;haut-parleur Yamaska SurroundFlow 13.5;4;839.95      ⚠
+1011;casque;casque d’écoute Ozeino;13;34.95
+1012;casque;casque d’écoute Bluetooth;13;80.95
+1013;casque;JBL;4;200.0      ⚠
+⚠: Article à risque trouvé dans la liste.
+Veuillez vous rendre au menu L pour les regrouper.
+
+Appuyez sur Entrée pour continuer...
+
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
+
+Votre choix : l
+
+Articles à risque (quantité <= 5) :
+ID : 1010, Catégorie : haut-parleur, Description : haut-parleur Yamaska SurroundFlow 13.5, Quantité : 4, Prix : 839.95 $
+ID : 1013, Catégorie : casque, Description : JBL, Quantité : 4, Prix : 200.0 $
+
+Appuyez sur Entrée pour continuer...
+
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
+
+Votre choix : i
+Entrez l'ID de l'article à afficher : 1013
+
+Informations de l'article :
+ID : 1013
+Catégorie : casque
+Description : JBL
+Quantité : 4
+Prix : 200.0 $
+
+Appuyez sur Entrée pour continuer...
+
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
+
+Votre choix : m
+Entrez l'ID de l'article à modifier : 1012
+
+Article trouvé :
+ID : 1012
+Catégorie : casque
+Description : casque d’écoute Bluetooth
+Quantité : 13
+Prix : 80.95 $
+Nouvelle catégorie (laissez vide pour conserver) :
+Nouvelle description (laissez vide pour conserver) : casque Apple
+Nouvelle quantité (0 pour conserver) : 0
+Nouveau prix (0 pour conserver) : 0
+Article modifié avec succès !
+
+Appuyez sur Entrée pour continuer...
+
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
+
+Votre choix : f
+
+Facture #100
+Entrez le code de produit (ID) ou 0 pour terminer : 1012
+Quantité disponible : 13
+Quantité achetée : 6
+Article ajouté à la facture.
+Entrez le code de produit (ID) ou 0 pour terminer : 1013
+Quantité disponible : 4
+Quantité achetée : 10
+Quantité invalide. Article non ajouté.
+Entrez le code de produit (ID) ou 0 pour terminer : 1013
+Quantité disponible : 4
+Quantité achetée : 2
+Article ajouté à la facture.
+Entrez le code de produit (ID) ou 0 pour terminer : 0
+FACTURE 100
+ITEM    DESCRIPTION                                    QTE     TOTAL
+1012       casque Apple                                6    485,70 $
+1013       JBL                                         2    400,00 $
+
+                                           Sous-total :     885,70 $
+                                           TPS (5%)   :      44,29 $
+                                           TVQ (9.95%):      88,13 $
+                                           Total      :    1018,11 $
+
+Facture enregistrée avec succès dans le fichier : facture100.txt
+
+Appuyez sur Entrée pour continuer...
+
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
+
+Votre choix : q
+Inventaire sauvegardé avec succès dans le fichier : Sortie.txt
+
+Process finished with exit code 0

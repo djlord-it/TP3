@@ -17,7 +17,7 @@ public class Facture {
     public StringBuilder construireFacture() {
         StringBuilder factureBuilder = new StringBuilder();
         if (articlesFactures.length == 0) {
-            factureBuilder.append(Message.FACTURE_VIDE);
+            factureBuilder.append(Message.Facture.VIDE);
         } else {
             double total = 0.0;
             factureBuilder.append("FACTURE ").append(numFacture).append("\n")
@@ -51,7 +51,7 @@ public class Facture {
      */
     public void afficherFacture() {
         if (articlesFactures.length == 0) {
-            System.out.println(Message.FACTURE_VIDE);
+            System.out.println(Message.Facture.VIDE);
         } else {
             System.out.println(construireFacture().toString());
         }

@@ -6,6 +6,7 @@
  * courriel: dushime.jessee_lord@courrier.uqam.ca
  * courriel: franck_enrico.ndjegnia@courrier.uqam.ca
  * Groupe 040 A24
+ * Explications et instructions du projet dans le fichier README.md
  */
 
 import java.util.Scanner;
@@ -17,11 +18,11 @@ public class TP3 {
         char choix = 0;
 
         do {
-            System.out.println(Message.MENU);
+            System.out.println(Message.Menu.PRINCIPAL);
             System.out.print("Votre choix : ");
             String entree = sc.nextLine().trim();
             if (entree.isEmpty()) {
-                System.out.println(Message.MSG_INVLD);
+                System.out.println(Message.Menu.OPTION_INVALIDE);
                 continue;
             }
 
@@ -36,7 +37,7 @@ public class TP3 {
                 case 'M': inventaire.modifierArticle(); break;
                 case 'F': inventaire.facturer(); break;
                 case 'Q': inventaire.sauvegarderArticles(); break;
-                default: System.out.println(Message.MSG_INVLD); break;
+                default: System.out.println(Message.Menu.OPTION_INVALIDE); break;
             }
 
             if (choix != 'Q') {
