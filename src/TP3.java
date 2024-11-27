@@ -12,32 +12,16 @@ import java.util.Scanner;
 
 public class TP3 {
     private static Scanner sc = new Scanner(System.in);
-    private static final String MENU = "Menu principal\n" +
-            "**************************************************\n" +
-            "*      Bienvenue chez Le Meilleur                *\n" +
-            "*        Choisissez une option :                 *\n" +
-            "**************************************************\n" +
-            "*    A      Ajouter un article                   *\n" +
-            "*    I      Afficher les détails d'un article    *\n" +
-            "*    T      Afficher tous les articles           *\n" +
-            "*    S      Supprimer un article                 *\n" +
-            "*    L      Afficher les articles à risque       *\n" +
-            "*    M      Modifier un article                  *\n" +
-            "*    F      Facturation                          *\n" +
-            "*    Q      Quitter                              *\n" +
-            "**************************************************\n";
-    private static final String MSG_INVLD = "Option invalide. Veuillez réessayer.";
-
     public static void main(String[] args) {
         Inventaire inventaire = new Inventaire("Canadian Tire", "inventaire.txt", 100);
         char choix = 0;
 
         do {
-            System.out.println(MENU);
+            System.out.println(Message.MENU);
             System.out.print("Votre choix : ");
             String entree = sc.nextLine().trim();
             if (entree.isEmpty()) {
-                System.out.println(MSG_INVLD);
+                System.out.println(Message.MSG_INVLD);
                 continue;
             }
 
@@ -52,7 +36,7 @@ public class TP3 {
                 case 'M': inventaire.modifierArticle(); break;
                 case 'F': inventaire.facturer(); break;
                 case 'Q': inventaire.sauvegarderArticles(); break;
-                default: System.out.println(MSG_INVLD); break;
+                default: System.out.println(Message.MSG_INVLD); break;
             }
 
             if (choix != 'Q') {

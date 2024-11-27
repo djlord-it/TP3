@@ -1,7 +1,8 @@
 import java.util.*;
 public class Validations {
-    // Static method to validate a non-empty string
+
     public static final Scanner scanner = new Scanner(System.in);
+
     public static String validerStringNonVide(String message) {
         String valeur;
         do {
@@ -14,7 +15,6 @@ public class Validations {
         return valeur;
     }
 
-    // Static method to validate a positive integer
     public static int validerEntierPositif(String message) {
         int valeur = -1;
         do {
@@ -33,7 +33,6 @@ public class Validations {
         return valeur;
     }
 
-    // Static method to validate a positive double
     public static double validerDoublePositif(String message) {
         double valeur = -1;
         do {
@@ -52,11 +51,11 @@ public class Validations {
         return valeur;
     }
 
-    // Static method to validate a modifiable string
     public static String validerStringMod(String message) {
         System.out.print(message);
         return scanner.nextLine().trim();
     }
+
     public static String corrigerMessage(String message) {
         message = message.trim();
         String nomCorrige = "";

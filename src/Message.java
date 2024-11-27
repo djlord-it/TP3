@@ -1,4 +1,20 @@
 public class Message {
+    //MENU
+    public static final String MENU = "Menu principal\n" +
+            "**************************************************\n" +
+            "*      Bienvenue chez Le Meilleur                *\n" +
+            "*        Choisissez une option :                 *\n" +
+            "**************************************************\n" +
+            "*    A      Ajouter un article                   *\n" +
+            "*    I      Afficher les détails d'un article    *\n" +
+            "*    T      Afficher tous les articles           *\n" +
+            "*    S      Supprimer un article                 *\n" +
+            "*    L      Afficher les articles à risque       *\n" +
+            "*    M      Modifier un article                  *\n" +
+            "*    F      Facturation                          *\n" +
+            "*    Q      Quitter                              *\n" +
+            "**************************************************\n";
+    public static final String MSG_INVLD = "Option invalide. Veuillez réessayer.";
     //ID
     public static final String ID_ENTREE = "";
     public static final String ID_SEQUENTIEL = "ID non séquentiel !\nVoici l'ID séquentiel : ";

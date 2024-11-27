@@ -239,16 +239,9 @@ public class Inventaire {
                 System.out.println(Message.QUANTITE_OUTOFBOUND);
                 continue;
             }
-
-
             Article articleFacture = new Article(article.getId(), article.getCategorie(), article.getDescription(), quantiteAchetee, article.getPrix());
-
-
             article.setQuantite(article.getQuantite() - quantiteAchetee);
-
-
             articlesFactures = ajoutTableauTemp(articlesFactures, articleFacture);
-
             System.out.println(Message.ARTICLE_FACTURE);
         }
 
