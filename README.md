@@ -9,18 +9,21 @@ Ce projet d'encapsulation permet de gérer un inventaire d'articles en Java. Il 
 - **Afficher tous les articles** : Affiche la liste complète des articles avec des avertissements pour les articles à faible stock.
 - **Supprimer un article** : Permet de supprimer un article en utilisant son ID.
 - **Modifier un article** : Permet de modifier les informations d'un article existant (catégorie, description, quantité, prix).
-- **Gérer les articles à risque** : Affiche les articles dont la quantité est inférieure ou égale à 5.
+- **Afficher les articles à risque** : Affiche les articles dont la quantité est inférieure ou égale à 5.
 - **Générer une facture** : Permet de créer une facture basée sur les articles achetés par un client, avec un suivi de la quantité restante.
-- **Sauvegarde des articles** : Sauvegarde l'inventaire actuel dans un fichier texte.
+- **Quitter avec une sauvegarde** : Sauvegarde l'inventaire actuel dans un fichier texte.
 
 ## Structure du projet
 
 - **`Inventaire.java`** : Classe qui contient la logique de gestion de l'inventaire.
 - **`Article.java`** : Classe représentant un article dans l'inventaire avec ses attributs (ID, catégorie, description, quantité, prix).
-- **`Validations.java`** : Classe utilitaire pour valider les entrées de l'utilisateur (par exemple, pour les chaînes de caractères, les entiers et les doubles). Elle contient également des méthodes pour corriger les entrées invalides (par exemple, supprimer les caractères non valides dans les catégories).
-- **`Facture.java`** : Classe représentant une facture qui contient les articles facturés et gère l'affichage et l'enregistrement de la facture.
-- **`Message.java`** : Contient les messages d'erreur et d'information affichés à l'utilisateur.
+- **`Validations.java`** : Classe pour la validation et la correction des entrées de l'utilisateur.
+- **`Facture.java`** : Classe qui gère la création de la facture ainsi que son fichier.
+- **`Message.java`** : Classe qui contient les messages d'erreur et d'information affichés à l'utilisateur.
 - **`TP3.java`** : Classe principale qui contient le main.
+
+![Example Image](src/TP3.png "Description")
+
 
 ## Prérequis
 
