@@ -1,3 +1,13 @@
+/**
+ * @ Jessee Lord DUSHIME
+ * @ Franck Enrico NDJEGNIA
+ * code permanent: DUSJ72280204
+ * code permanent: FRAN20298605
+ * courriel: dushime.jessee_lord@courrier.uqam.ca
+ * courriel: franck_enrico.ndjegnia@courrier.uqam.ca
+ * Groupe 040 A24
+ */
+
 import java.util.Scanner;
 
 public class TP3 {
@@ -19,21 +29,19 @@ public class TP3 {
     private static final String MSG_INVLD = "Option invalide. Veuillez réessayer.";
 
     public static void main(String[] args) {
-        // Initialisation de l'inventaire
         Inventaire inventaire = new Inventaire("Canadian Tire", new Article[0], 100);
         char choix = 0;
 
         do {
-            // Affichage du menu
             System.out.println(MENU);
             System.out.print("Votre choix : ");
-            String entree = sc.nextLine().trim(); // Récupérer la ligne complète et éviter les erreurs
+            String entree = sc.nextLine().trim();
             if (entree.isEmpty()) {
                 System.out.println(MSG_INVLD);
                 continue;
             }
 
-            choix = Character.toUpperCase(entree.charAt(0)); // Lire uniquement le premier caractère
+            choix = Character.toUpperCase(entree.charAt(0));
 
             switch (choix) {
                 case 'A': inventaire.ajouterArticle(); break;
@@ -49,7 +57,7 @@ public class TP3 {
 
             if (choix != 'Q') {
                 System.out.println("\nAppuyez sur Entrée pour continuer...");
-                sc.nextLine(); // Pause avant de revenir au menu
+                sc.nextLine();
             }
 
         } while (choix != 'Q');
