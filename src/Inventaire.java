@@ -7,11 +7,12 @@ public class Inventaire {
     private Article[] articles;
     private int numFacture;
 
-    public Inventaire(String succursale, Article[] articles, int numFacture) {
+    public Inventaire(String succursale, String nomFichier, int numFacture) {
         this.succursale = succursale;
-        this.articles = articles != null ? articles : new Article[0];
-        this.numFacture = 100;
+        this.numFacture = numFacture;
+        this.articles = chargerInventaire(nomFichier);
     }
+
 
 
     public void ajouterArticle() {
@@ -19,7 +20,7 @@ public class Inventaire {
         boolean check = false;
 
         if (articles.length == 0) {
-            id = validerEntierPositif("Entrez l'ID du premier article : ");
+            id = Validations.validerEntierPositif("Entrez l'ID du premier article : ");
         } else {
             int dernierId = articles[articles.length - 1].getId();
             System.out.print("Entrez l'ID : ");
@@ -36,7 +37,7 @@ public class Inventaire {
             Article articleExistant = articleExiste(id);
             if (articleExistant != null) {
                 System.out.println("l'ID "+ articleExistant.getId() + " correspond à l'article '" + articleExistant.getDescription()+"'");
-                int quantiteAdditionnelle = validerEntierPositif("Entrez la quantité supplémentaire : ");
+                int quantiteAdditionnelle = Validations.validerEntierPositif("Entrez la quantité supplémentaire : ");
                 articleExistant.setQuantite(articleExistant.getQuantite() + quantiteAdditionnelle);
                 System.out.println(Message.QUANTITE_MAJ);
             }
@@ -48,7 +49,7 @@ public class Inventaire {
     }
 
     public void afficherArticle() {
-        int id = validerEntierPositif("Entrez l'ID de l'article à afficher : ");
+        int id = Validations.validerEntierPositif("Entrez l'ID de l'article à afficher : ");
         Article article = articleExiste(id);
 
         if (article != null) {
@@ -87,7 +88,7 @@ public class Inventaire {
         if (articles.length == 0) {
             System.out.println(Message.ARTICLE_VIDE);
         }else {
-            int id = validerEntierPositif("Entrez l'ID de l'article à supprimer : ");
+            int id = Validations.validerEntierPositif("Entrez l'ID de l'article à supprimer : ");
             Article article = articleExiste(id);
 
             if (article != null) {
@@ -123,7 +124,7 @@ public class Inventaire {
     }
 
     public void modifierArticle() {
-        int id = validerEntierPositif("Entrez l'ID de l'article à modifier : ");
+        int id = Validations.validerEntierPositif("Entrez l'ID de l'article à modifier : ");
         Article article = articleExiste(id);
         if (article != null) {
             System.out.println("\nArticle trouvé :");
@@ -170,10 +171,10 @@ public class Inventaire {
      * @return Un objet Article contenant les informations saisies.
      */
     private Article saisirInformationsArticle(int id) {
-        String categorie = corrigerMessage(validerStringNonVide("Entrez la catégorie de l'article : "));
-        String description = validerStringNonVide("Entrez la description de l'article : ");
-        int quantite = validerEntierPositif("Entrez la quantité de l'article : ");
-        double prix = validerDoublePositif("Entrez le prix de l'article : ");
+        String categorie = Validations.corrigerMessage(Validations.validerStringNonVide("Entrez la catégorie de l'article : "));
+        String description = Validations.validerStringNonVide("Entrez la description de l'article : ");
+        int quantite = Validations.validerEntierPositif("Entrez la quantité de l'article : ");
+        double prix = Validations.validerDoublePositif("Entrez le prix de l'article : ");
 
         return new Article(id, categorie, description, quantite, prix);
     }
@@ -184,10 +185,10 @@ public class Inventaire {
      * @return L'article modifié avec les nouvelles informations.
      */
     private Article saisirInformationsArticleMod(Article articleExistant) {
-        String categorie = corrigerMessage(validerStringMod("Nouvelle catégorie (laissez vide pour conserver) : "));
-        String description = validerStringMod("Nouvelle description (laissez vide pour conserver) : ");
-        int quantite = validerEntierPositif("Nouvelle quantité (0 pour conserver) : ");
-        double prix = validerDoublePositif("Nouveau prix (0 pour conserver) : ");
+        String categorie = Validations.corrigerMessage(Validations.validerStringMod("Nouvelle catégorie (laissez vide pour conserver) : "));
+        String description = Validations.validerStringMod("Nouvelle description (laissez vide pour conserver) : ");
+        int quantite = Validations.validerEntierPositif("Nouvelle quantité (0 pour conserver) : ");
+        double prix = Validations.validerDoublePositif("Nouveau prix (0 pour conserver) : ");
 
         // Mettre à jour l'article existant avec les nouvelles informations
         if (!categorie.isEmpty()) articleExistant.setCategorie(categorie);
@@ -196,83 +197,6 @@ public class Inventaire {
         if (prix > 0) articleExistant.setPrix(prix);
 
         return articleExistant;
-    }
-
-    /**
-     * Demande à l'utilisateur d'entrer une chaîne non vide.
-     * Répète la saisie tant qu'une chaîne valide n'est pas fournie.
-     * @param message Message d'invite affiché à l'utilisateur.
-     * @return Une chaîne non vide validée.
-     */
-    private String validerStringNonVide(String message) {
-        String valeur;
-        do {
-            System.out.print(message);
-            valeur = scanner.nextLine().trim();
-            if (valeur.isEmpty()) {
-                System.out.println(Message.ERREUR_VIDE);
-            }
-        } while (valeur.isEmpty());
-        return valeur;
-    }
-
-    /**
-     * Valide l'entrée d'un entier positif. Demande une nouvelle saisie en cas
-     * de valeur négative ou d'entrée invalide.
-     * @param message Message d'invite affiché à l'utilisateur.
-     * @return Un entier positif validé.
-     */
-    private int validerEntierPositif(String message) {
-        int valeur = -1;
-        do {
-            try {
-                System.out.print(message);
-                valeur = scanner.nextInt();
-                scanner.nextLine();
-                if (valeur < 0) {
-                    System.out.println(Message.ERREUR_PSTV);
-                }
-            } catch (InputMismatchException e) {
-                System.out.println(Message.ERREUR_INVLD);
-                scanner.nextLine();
-            }
-        } while (valeur < 0);
-        return valeur;
-    }
-
-    /**
-     * Valide l'entrée d'un nombre décimal positif. Répète la saisie en cas de valeur
-     * négative ou d'entrée invalide.
-     * @param message Message d'invite affiché à l'utilisateur.
-     * @return Un nombre décimal positif validé.
-     */
-    private double validerDoublePositif(String message) {
-        double valeur = -1;
-        do {
-            try {
-                System.out.print(message);
-                valeur = scanner.nextDouble();
-                scanner.nextLine();
-                if (valeur < 0) {
-                    System.out.println(Message.ERREUR_PSTV);
-                }
-            } catch (InputMismatchException e) {
-                System.out.println(Message.ERREUR_INVLD);
-                scanner.nextLine();
-            }
-        } while (valeur < 0);
-        return valeur;
-    }
-
-    /**
-     * Demande à l'utilisateur d'entrer une chaîne, qui peut être vide.
-     * Nécessaire pour la méthode de la modification qui accepte un String vide
-     * @param message Message d'invite affiché à l'utilisateur.
-     * @return Une chaîne saisie par l'utilisateur.
-     */
-    private String validerStringMod(String message) {
-        System.out.print(message);
-        return scanner.nextLine().trim();
     }
 
     /**
@@ -299,7 +223,7 @@ public class Inventaire {
         Article[] articlesFactures = new Article[0];
 
         while (true) {
-            int id = validerEntierPositif("Entrez le code de produit (ID) ou 0 pour terminer : ");
+            int id = Validations.validerEntierPositif("Entrez le code de produit (ID) ou 0 pour terminer : ");
             if (id == 0) break;
 
             Article article = articleExiste(id);
@@ -309,7 +233,7 @@ public class Inventaire {
             }
 
             System.out.println("Quantité disponible : " + article.getQuantite());
-            int quantiteAchetee = validerEntierPositif("Quantité achetée : ");
+            int quantiteAchetee = Validations.validerEntierPositif("Quantité achetée : ");
 
             if (quantiteAchetee <= 0 || quantiteAchetee > article.getQuantite()) {
                 System.out.println(Message.QUANTITE_OUTOFBOUND);
@@ -385,43 +309,6 @@ public class Inventaire {
         return false;
     }
 
-    /**
-     * Corrige et formate un message en supprimant les caractères non alphabétiques
-     * Methode qui sera utilisée pour la catégorie seulement
-     * @param message Le message à corriger.
-     * @return Le message corrigé et formaté.
-     */
-    private String corrigerMessage(String message) {
-        message = message.trim();
-        String nomCorrige = "";
-        String nomValide = "";
-        String nomFinal = "";
-        boolean nouveauMot = true;
-        boolean check = false;
-
-        // Première boucle pour supprimer les caractères non alphabétiques sauf les espaces
-        for (int i = 0; i < message.length(); i++) {
-            char c = message.charAt(i);
-            if (Character.isLetter(c) || Character.isSpaceChar(c)) {
-                nomCorrige += c; // Concatène uniquement les caractères valides
-            }
-        }
-
-        // Deuxième boucle pour supprimer les espaces supplémentaires
-        for (int i = 0; i < nomCorrige.length(); i++) {
-            char c = nomCorrige.charAt(i);
-            if (c != ' ') {
-                nomValide += c; // Concatène le caractère s'il n'est pas un espace
-                check = false;
-            } else if (!check) {
-                nomValide += c; // Concatène un seul espace si le dernier caractère n'était pas un espace
-                check = true;
-            }
-        }
-
-        return nomValide.trim();
-    }
-
     private boolean articlesARisque() {
         boolean risqueTrouve = false;
         for (Article article : articles) {
@@ -436,5 +323,46 @@ public class Inventaire {
         }
         return risqueTrouve;
     }
+
+    private Article[] chargerInventaire(String nomFichier) {
+        Article[] articlesCharges = new Article[0]; // Tableau initial vide
+        String fichier = "src/inventaire.txt";
+
+              try {
+                  FileReader FichierLu = new FileReader(fichier);
+                 BufferedReader curseur = new BufferedReader(FichierLu);
+            String ligne;
+            while ((ligne = curseur.readLine()) != null) {
+
+                if (ligne.trim().isEmpty()) continue;
+
+                String[] details = ligne.split(";"); // Change to use `;` as delimiter
+                if (details.length == 5) {
+                    try {
+                        int id = Integer.parseInt(details[0].trim());
+                        String categorie = details[1].trim();
+                        String description = details[2].trim();
+                        int quantite = Integer.parseInt(details[3].trim());
+                        double prix = Double.parseDouble(details[4].trim());
+
+                        // Crée un nouvel article
+                        Article nouvelArticle = new Article(id, categorie, description, quantite, prix);
+
+                        // Ajoute l'article au tableau
+                        articlesCharges = ajoutTableauTemp(articlesCharges, nouvelArticle);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Erreur de format sur la ligne: " + ligne);
+                    }
+                } else {
+                    System.out.println("Ligne mal formatée ignorée: " + ligne);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erreur lors de la lecture du fichier : " + e.getMessage());
+        }
+
+        return articlesCharges;
+    }
+
 
 }

@@ -29,7 +29,7 @@ public class TP3 {
     private static final String MSG_INVLD = "Option invalide. Veuillez réessayer.";
 
     public static void main(String[] args) {
-        Inventaire inventaire = new Inventaire("Canadian Tire", new Article[0], 100);
+        Inventaire inventaire = new Inventaire("Canadian Tire", "inventaire.txt", 100);
         char choix = 0;
 
         do {

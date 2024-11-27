@@ -1,0 +1,12 @@
+1001;console;console de jeu PalyStation;8;999.95
+1002;console;console de jeu Lenovo;45;900.95
+1003;console;console de jeu Nintendo; 540;499.99
+1004;manette;manette sans fil Logitech;12;25.98
+1005;manette;manette sans fil PlayStation;30;90.98
+1006;volant;volant de course Logitech;17;280.65
+1007;carte;carte mémoire 512GB;34;23.99
+1008;carte;carte réseau sans fil USB WIFI;22;129.99
+1009;cable;cable d’extension J&D;54;25.98
+1010;haut-parleur;haut-parleur Yamaska SurroundFlow 13.5;4;839.95
+1011;casque;casque d’écoute Ozeino;13;34.95
+1012;casque;casque d’écoute Bluetooth;13;80.95
