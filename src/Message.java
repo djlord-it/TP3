@@ -36,24 +36,21 @@ public class Message {
     public static class Article {
         public static final String AJOUTE_SUCCES = "Nouvel article ajouté avec succès.";
         public static final String NON_TROUVE = "Article non trouvé.";
-        public static final String AFFICHE = "\nInformations de l'article :";
-        public static final String TOUS = "\nListe de tous les articles :";
+        public static final String MOD = "Article modifié avec succès !";
         public static final String RISQUE = "⚠: Article à risque trouvé dans la liste.\nVeuillez vous rendre au menu L pour les regrouper.";
         public static final String SUPPRIME_SUCCES = "Article supprimé avec succès !";
         public static final String VIDE = "La liste est vide";
         public static final String FACTURE = "Article ajouté à la facture.";
-        public static final String SAUVEGARDE_SUCCES = "Inventaire sauvegardé avec succès dans le fichier : ";
+        public static final String SUPPANNUL = "Suppression annulée.";
     }
 
     // FACTURE
     public static class Facture {
         public static final String VIDE = "Facture vide. Aucun achat effectué.";
-        public static final String SAUVEGARDEE = "Facture enregistrée avec succès dans le fichier : ";
     }
 
     // ERREUR
     public static class Erreur {
-        public static final String SAUVEGARDE = "Erreur lors de la sauvegarde de l'inventaire : ";
         public static final String INVALIDE = "Erreur : Veuillez entrer une valeur valide.";
         public static final String POSITIVE = "Erreur : La valeur doit être positive.";
         public static final String VIDE = "Erreur : La valeur ne peut pas être vide.";

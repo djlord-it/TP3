@@ -1,14 +1,3 @@
-/**
- * @ Jessee Lord DUSHIME
- * @ Franck Enrico NDJEGNIA
- * code permanent: DUSJ72280204
- * code permanent: FRAN20298605
- * courriel: dushime.jessee_lord@courrier.uqam.ca
- * courriel: franck_enrico.ndjegnia@courrier.uqam.ca
- * Groupe 040 A24
- * Explications et instructions du projet dans le fichier README.md
- */
-
 import java.util.Scanner;
 
 public class TP3 {
@@ -19,15 +8,7 @@ public class TP3 {
 
         do {
             System.out.println(Message.Menu.PRINCIPAL);
-            System.out.print("Votre choix : ");
-            String entree = sc.nextLine().trim();
-            if (entree.isEmpty()) {
-                System.out.println(Message.Menu.OPTION_INVALIDE);
-                continue;
-            }
-
-            choix = Character.toUpperCase(entree.charAt(0));
-
+            choix = Character.toUpperCase(Validations.validerStringNonVide("Votre choix : ").charAt(0));
             switch (choix) {
                 case 'A': inventaire.ajouterArticle(); break;
                 case 'I': inventaire.afficherArticle(); break;
