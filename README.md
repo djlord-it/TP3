@@ -22,7 +22,7 @@ Ce projet d'encapsulation permet de gérer un inventaire d'articles en Java. Il 
 - **`Message.java`** : Classe qui contient les messages d'erreur et d'information affichés à l'utilisateur.
 - **`TP3.java`** : Classe principale qui contient le main.
 
-![Example Image](src/TP3.png "Description")
+![Example Image](src/TP3.jpeg "Description")
 
 
 ## Prérequis
