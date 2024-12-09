@@ -1,0 +1,11 @@
+FACTURE 100
+ITEM    DESCRIPTION                                    QTE     TOTAL
+1034       carte graphique GTX 3060 (rouge 2011)      20   4837,80 CAD
+1056       carte réseau sans fil USB WIFI (performance améliorée 2010)   34  15028,68 CAD
+1100       console de jeu Nintendo (modèle 2023)      56  42280,56 CAD
+1234       carte réseau sans fil USB WIFI (modèle 2023)   45  44595,45 CAD
+
+                                           Sous-total :  106742,49 CAD
+                                           TPS (5%)   :    5337,12 CAD
+                                           TVQ (9.95%):   10620,88 CAD
+                                           Total      :  122700,49 CAD

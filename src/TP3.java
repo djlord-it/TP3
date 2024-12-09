@@ -21,11 +21,6 @@ public class TP3 {
                 default: System.out.println(Message.Menu.OPTION_INVALIDE); break;
             }
 
-            if (choix != 'Q') {
-                System.out.println("\nAppuyez sur Entrée pour continuer...");
-                sc.nextLine();
-            }
-
         } while (choix != 'Q');
 
         sc.close();

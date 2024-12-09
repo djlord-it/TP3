@@ -1,0 +1,9 @@
+FACTURE 101
+ITEM    DESCRIPTION                                    QTE     TOTAL
+1003       console de jeu Nintendo                    30  14999,70 CAD
+1002       Xbox                                       20  20000,00 CAD
+
+                                           Sous-total :   34999,70 CAD
+                                           TPS (5%)   :    1749,99 CAD
+                                           TVQ (9.95%):    3482,47 CAD
+                                           Total      :   40232,16 CAD
