@@ -1,6 +1,6 @@
 /*
- *@Jessee Lord DUSHIME
- *@Franck Enrico NDJEGNIA
+ * @author Jessee Lord DUSHIME
+ * @author Franck Enrico NDJEGNIA
  * code permanent: DUSJ72280204
  * code permanent: FRAN20298605
  * courriel: dushime.jessee_lord@courrier.uqam.ca
@@ -12,7 +12,7 @@
 import java.util.Scanner;
 
 public class TP3 {
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         Inventaire inventaire = new Inventaire("Canadian Tire", "inventaire.txt", 100);
         char choix = 0;

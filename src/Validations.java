@@ -1,6 +1,6 @@
 import java.util.*;
 public class Validations {
-    public static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     /**
      * Vérifie si le tableau d'articles est vide ou nul.

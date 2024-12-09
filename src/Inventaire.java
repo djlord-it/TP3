@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Inventaire {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
     private String succursale;
     private Article[] articles;
     private int numFacture;
