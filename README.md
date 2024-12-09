@@ -27,7 +27,7 @@ Ce projet d'encapsulation permet de gérer un inventaire d'articles en Java. Il 
 
 ## Prérequis
 
-Pour exécuter ce projet, vous devez avoir installé [Java JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) sur votre machine et IDE (Optionnel mais, recommandé) sinon, servez-vous du terminal de votre machine avec le script bash en dessous.
+Pour exécuter ce projet, vous devez avoir installé [Java](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) sur votre machine et IDE (Optionnel mais, recommandé) sinon, servez-vous du terminal de votre machine avec le script bash en dessous.
 
 ## Installation
 
