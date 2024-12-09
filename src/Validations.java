@@ -97,24 +97,22 @@ public class Validations {
      * @throws IllegalArgumentException Si le message contient des erreurs de format.
      */
     public static String corrigerMessage(String message) {
-
         if (message == null || message.trim().isEmpty()) {
             return message.trim();
         }
+
         message = message.trim();
 
         boolean contientChiffresSeulement = true;
         for (int i = 0; i < message.length(); i++) {
             if (!Character.isDigit(message.charAt(i))) {
                 contientChiffresSeulement = false;
-                break;
             }
         }
 
         if (contientChiffresSeulement) {
             throw new IllegalArgumentException("La categorie ne peut pas être constitué de chiffres seulement");
         }
-
 
         for (int i = 1; i < message.length() - 1; i++) {
             if (Character.isDigit(message.charAt(i)) &&
@@ -123,7 +121,6 @@ public class Validations {
                 throw new IllegalArgumentException("La categorie ne peut pas contenir des chiffres au milieu");
             }
         }
-
 
         StringBuilder nomCorrige = new StringBuilder();
         boolean check = false;

@@ -273,7 +273,7 @@ public class Inventaire {
         boolean check = false;
         do {
             try {
-                categorie = Validations.corrigerMessage(Validations.validerStringMod("Entrez la catégorie de l'article : "));
+                categorie = Validations.corrigerMessage(Validations.validerStringMod("Entrez la catégorie de l'article (laissez vide pour conserver) : "));
                 check = false;
             } catch (IllegalArgumentException e) {
                 System.out.println("Erreur: " + e.getMessage());

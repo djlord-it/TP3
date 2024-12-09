@@ -9,7 +9,7 @@ Ce projet d'encapsulation permet de gérer un inventaire d'articles en Java. Il 
 - **Afficher tous les articles** : Affiche la liste complète des articles avec des avertissements pour les articles à faible stock.
 - **Supprimer un article** : Permet de supprimer un article en utilisant son ID.
 - **Modifier un article** : Permet de modifier les informations d'un article existant (catégorie, description, quantité, prix).
-- **Afficher les articles à risque** : Affiche les articles dont la quantité est inférieure ou égale à 5.
+- **Afficher les articles à risque** : Affiche les articles dont la quantité est inférieure ou égale à 10.
 - **Générer une facture** : Permet de créer une facture basée sur les articles achetés par un client, avec un suivi de la quantité restante.
 - **Quitter avec une sauvegarde** : Sauvegarde l'inventaire actuel dans un fichier texte.
 
@@ -22,15 +22,12 @@ Ce projet d'encapsulation permet de gérer un inventaire d'articles en Java. Il 
 - **`Message.java`** : Classe qui contient les messages d'erreur et d'information affichés à l'utilisateur.
 - **`TP3.java`** : Classe principale qui contient le main.
 
-![Image](src/TP3.jpeg "Description")
+![Image](src/TP3image.jpeg "Description")
 
 
 ## Prérequis
 
-Pour exécuter ce projet, vous devez avoir installé Java sur votre machine.
-
-- [Java JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
-- IDE (Optionnel mais, recommandé) sinon, servez-vous du terminal de votre machine avec le script bash en dessous.
+Pour exécuter ce projet, vous devez avoir installé [Java JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) sur votre machine et IDE (Optionnel mais, recommandé) sinon, servez-vous du terminal de votre machine avec le script bash en dessous.
 
 ## Installation
 

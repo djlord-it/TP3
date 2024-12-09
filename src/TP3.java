@@ -1,3 +1,14 @@
+/*
+ *@Jessee Lord DUSHIME
+ *@Franck Enrico NDJEGNIA
+ * code permanent: DUSJ72280204
+ * code permanent: FRAN20298605
+ * courriel: dushime.jessee_lord@courrier.uqam.ca
+ * courriel: franck_enrico.ndjegnia@courrier.uqam.ca
+ * Groupe 040 A24
+ * @version: 9/Dec/2024
+ * Les détails du programme sont README.md
+ */
 import java.util.Scanner;
 
 public class TP3 {
