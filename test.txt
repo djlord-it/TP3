@@ -13,53 +13,15 @@ Menu principal
 *    Q      Quitter                              *
 **************************************************
 
-Votre choix : t
-
-Liste de tous les articles :
-1001;console;console de jeu PalyStation;8;999.95
-1002;console;console de jeu Lenovo;45;900.95
-1003;console;console de jeu Nintendo;540;499.99
-1004;manette;manette sans fil Logitech;12;25.98
-1005;manette;manette sans fil PlayStation;30;90.98
-1006;volant;volant de course Logitech;17;280.65
-1007;carte;carte mémoire 512GB;34;23.99
-1008;carte;carte réseau sans fil USB WIFI;22;129.99
-1009;cable;cable d’extension J&D;54;25.98
-1010;haut-parleur;haut-parleur Yamaska SurroundFlow 13.5;4;839.95      ⚠
-1011;casque;casque d’écoute Ozeino;13;34.95
-1012;casque;casque d’écoute Bluetooth;13;80.95
-⚠: Article à risque trouvé dans la liste.
-Veuillez vous rendre au menu L pour les regrouper.
-
-Appuyez sur Entrée pour continuer...
-
-Menu principal
-**************************************************
-*      Bienvenue chez Le Meilleur                *
-*        Choisissez une option :                 *
-**************************************************
-*    A      Ajouter un article                   *
-*    I      Afficher les détails d'un article    *
-*    T      Afficher tous les articles           *
-*    S      Supprimer un article                 *
-*    L      Afficher les articles à risque       *
-*    M      Modifier un article                  *
-*    F      Facturation                          *
-*    Q      Quitter                              *
-**************************************************
-
 Votre choix : a
-Entrez l'ID : 1234
+Entrez l'ID : 2304
 ID non séquentiel !
 Voici l'ID séquentiel : 1013
-Entrez la catégorie de l'article : !casque111
+Entrez la catégorie de l'article : haut-parleur1234
 Entrez la description de l'article : JBL
-Entrez la quantité de l'article : 4
+Entrez la quantité de l'article : 12
 Entrez le prix de l'article : 200
 Nouvel article ajouté avec succès.
-
-Appuyez sur Entrée pour continuer...
-
 Menu principal
 **************************************************
 *      Bienvenue chez Le Meilleur                *
@@ -78,7 +40,7 @@ Menu principal
 Votre choix : t
 
 Liste de tous les articles :
-1001;console;console de jeu PalyStation;8;999.95
+1001;console;console de jeu PalyStation;8;999.95      ⚠
 1002;console;console de jeu Lenovo;45;900.95
 1003;console;console de jeu Nintendo;540;499.99
 1004;manette;manette sans fil Logitech;12;25.98
@@ -90,12 +52,9 @@ Liste de tous les articles :
 1010;haut-parleur;haut-parleur Yamaska SurroundFlow 13.5;4;839.95      ⚠
 1011;casque;casque d’écoute Ozeino;13;34.95
 1012;casque;casque d’écoute Bluetooth;13;80.95
-1013;casque;JBL;4;200.0      ⚠
+1013;haut-parleur;JBL;12;200.0
 ⚠: Article à risque trouvé dans la liste.
 Veuillez vous rendre au menu L pour les regrouper.
-
-Appuyez sur Entrée pour continuer...
-
 Menu principal
 **************************************************
 *      Bienvenue chez Le Meilleur                *
@@ -113,39 +72,9 @@ Menu principal
 
 Votre choix : l
 
-Articles à risque (quantité <= 5) :
-ID : 1010, Catégorie : haut-parleur, Description : haut-parleur Yamaska SurroundFlow 13.5, Quantité : 4, Prix : 839.95 $
-ID : 1013, Catégorie : casque, Description : JBL, Quantité : 4, Prix : 200.0 $
-
-Appuyez sur Entrée pour continuer...
-
-Menu principal
-**************************************************
-*      Bienvenue chez Le Meilleur                *
-*        Choisissez une option :                 *
-**************************************************
-*    A      Ajouter un article                   *
-*    I      Afficher les détails d'un article    *
-*    T      Afficher tous les articles           *
-*    S      Supprimer un article                 *
-*    L      Afficher les articles à risque       *
-*    M      Modifier un article                  *
-*    F      Facturation                          *
-*    Q      Quitter                              *
-**************************************************
-
-Votre choix : i
-Entrez l'ID de l'article à afficher : 1013
-
-Informations de l'article :
-ID : 1013
-Catégorie : casque
-Description : JBL
-Quantité : 4
-Prix : 200.0 $
-
-Appuyez sur Entrée pour continuer...
-
+Articles à risque (quantité <= 10) :
+ID : 1001, Catégorie : console, Description : console de jeu PalyStation, Quantité : 8, Prix : 999.95 CAD
+ID : 1010, Catégorie : haut-parleur, Description : haut-parleur Yamaska SurroundFlow 13.5, Quantité : 4, Prix : 839.95 CAD
 Menu principal
 **************************************************
 *      Bienvenue chez Le Meilleur                *
@@ -162,22 +91,67 @@ Menu principal
 **************************************************
 
 Votre choix : m
-Entrez l'ID de l'article à modifier : 1012
+Entrez l'ID de l'article à modifier : 1002
 
 Article trouvé :
-ID : 1012
-Catégorie : casque
-Description : casque d’écoute Bluetooth
-Quantité : 13
-Prix : 80.95 $
-Nouvelle catégorie (laissez vide pour conserver) :
-Nouvelle description (laissez vide pour conserver) : casque Apple
-Nouvelle quantité (0 pour conserver) : 0
-Nouveau prix (0 pour conserver) : 0
+ID : 1002
+Catégorie : console
+Description : console de jeu Lenovo
+Quantité : 45
+Prix : 900.95 CAD
+Entrez la catégorie de l'article :
+Nouvelle description (laissez vide pour conserver) : Xbox
+Nouvelle quantité (0 pour conserver) :
+0
+Nouveau prix (0 pour conserver) : 1000
 Article modifié avec succès !
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
 
-Appuyez sur Entrée pour continuer...
+Votre choix : i
+Entrez l'ID de l'article à afficher : 1002
 
+Informations de l'article :
+ID : 1002
+Catégorie : console
+Description : Xbox
+Quantité : 45
+Prix : 1000.0 CAD
+Menu principal
+**************************************************
+*      Bienvenue chez Le Meilleur                *
+*        Choisissez une option :                 *
+**************************************************
+*    A      Ajouter un article                   *
+*    I      Afficher les détails d'un article    *
+*    T      Afficher tous les articles           *
+*    S      Supprimer un article                 *
+*    L      Afficher les articles à risque       *
+*    M      Modifier un article                  *
+*    F      Facturation                          *
+*    Q      Quitter                              *
+**************************************************
+
+Votre choix : s
+Entrez l'ID de l'article à supprimer : 1013
+
+Article trouvé :
+Catégorie : haut-parleur
+Description : JBL
+Voulez-vous vraiment supprimer cet article ? (o/O pour confirmer) : o
+Article supprimé avec succès !
 Menu principal
 **************************************************
 *      Bienvenue chez Le Meilleur                *
@@ -194,35 +168,27 @@ Menu principal
 **************************************************
 
 Votre choix : f
-
-Facture #100
-Entrez le code de produit (ID) ou 0 pour terminer : 1012
-Quantité disponible : 13
-Quantité achetée : 6
+Entrez le code de produit (ID) ou 0 pour terminer : 1003
+Quantité disponible : 540
+Quantité achetée : 30
 Article ajouté à la facture.
-Entrez le code de produit (ID) ou 0 pour terminer : 1013
-Quantité disponible : 4
-Quantité achetée : 10
-Quantité invalide. Article non ajouté.
-Entrez le code de produit (ID) ou 0 pour terminer : 1013
-Quantité disponible : 4
-Quantité achetée : 2
+Entrez le code de produit (ID) ou 0 pour terminer : 1002
+Quantité disponible : 45
+Quantité achetée : 20
 Article ajouté à la facture.
 Entrez le code de produit (ID) ou 0 pour terminer : 0
-FACTURE 100
+Facture #101
+FACTURE 101
 ITEM    DESCRIPTION                                    QTE     TOTAL
-1012       casque Apple                                6    485,70 $
-1013       JBL                                         2    400,00 $
+1003       console de jeu Nintendo                    30  14999,70 CAD
+1002       Xbox                                       20  20000,00 CAD
 
-                                           Sous-total :     885,70 $
-                                           TPS (5%)   :      44,29 $
-                                           TVQ (9.95%):      88,13 $
-                                           Total      :    1018,11 $
+                                           Sous-total :   34999,70 CAD
+                                           TPS (5%)   :    1749,99 CAD
+                                           TVQ (9.95%):    3482,47 CAD
+                                           Total      :   40232,16 CAD
 
-Facture enregistrée avec succès dans le fichier : facture100.txt
-
-Appuyez sur Entrée pour continuer...
-
+Facture enregistrée avec succès dans le fichier : facture101.txt
 Menu principal
 **************************************************
 *      Bienvenue chez Le Meilleur                *
