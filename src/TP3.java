@@ -13,27 +13,36 @@ import java.util.Scanner;
 
 public class TP3 {
     private static final Scanner sc = new Scanner(System.in);
+
+    /**
+     * Affiche le menu principal
+     * @param inventaire
+     * @return Le choix sélectionné
+     */
+    public static char afficherMenuPrincipal(Inventaire inventaire) {
+        char choix = 0;
+        System.out.println(Message.Menu.PRINCIPAL);
+        choix = Character.toUpperCase(Validations.validerStringNonVide("Votre choix : ").charAt(0));
+        switch (choix) {
+            case 'A': inventaire.ajouterArticle(); break;
+            case 'I': inventaire.afficherArticle(); break;
+            case 'T': inventaire.afficherTousArticles(); break;
+            case 'S': inventaire.supprimerArticle(); break;
+            case 'L': inventaire.afficherArticlesARisque(); break;
+            case 'M': inventaire.modifierArticle(); break;
+            case 'F': inventaire.facturer(); break;
+            case 'Q': inventaire.sauvegarderArticles(); break;
+            default: System.out.println(Message.Menu.OPTION_INVALIDE); break;
+        }
+        return choix;
+    }
+
     public static void main(String[] args) {
         Inventaire inventaire = new Inventaire("Canadian Tire", "inventaire.txt", 100);
-        char choix = 0;
-
+        char choix;
         do {
-            System.out.println(Message.Menu.PRINCIPAL);
-            choix = Character.toUpperCase(Validations.validerStringNonVide("Votre choix : ").charAt(0));
-            switch (choix) {
-                case 'A': inventaire.ajouterArticle(); break;
-                case 'I': inventaire.afficherArticle(); break;
-                case 'T': inventaire.afficherTousArticles(); break;
-                case 'S': inventaire.supprimerArticle(); break;
-                case 'L': inventaire.afficherArticlesARisque(); break;
-                case 'M': inventaire.modifierArticle(); break;
-                case 'F': inventaire.facturer(); break;
-                case 'Q': inventaire.sauvegarderArticles(); break;
-                default: System.out.println(Message.Menu.OPTION_INVALIDE); break;
-            }
-
+            choix = afficherMenuPrincipal(inventaire);
         } while (choix != 'Q');
-
         sc.close();
     }
 }

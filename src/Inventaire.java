@@ -281,8 +281,23 @@ public class Inventaire {
             }
         }while(check);
         String description = Validations.validerStringMod("Nouvelle description (laissez vide pour conserver) : ");
-        int quantite = Validations.validerEntierPositif("Nouvelle quantité (0 pour conserver) : ");
-        double prix = Validations.validerDoublePositif("Nouveau prix (0 pour conserver) : ");
+        String entreeMod = Validations.validerStringMod("Nouvelle quantité et prix (séparés par ; [0 pour conserver]) : ");
+        int quantite = 0;
+        double prix = 0;
+
+        if (!entreeMod.isEmpty()) {
+            String[] values = entreeMod.split(";");
+            try {
+                if (values.length == 2) {
+                    quantite = Integer.parseInt(values[0].trim());
+                    prix = Double.parseDouble(values[1].trim());
+                } else {
+                    System.out.println(Message.Erreur.INVALIDE);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Erreur de saisie.");
+            }
+        }
 
 
         if (!categorie.isEmpty()) articleExistant.setCategorie(categorie);
